@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivahit Pidit Sangh (VPS) | Stories</title>
+  <meta name="description" content="Anonymous stories from men experiencing domestic violence. Share your experience safely.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗣️</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Vivahit Pidit Sangh (VPS)</a>
+      <nav class="nav" id="primary-nav">
+        <a href="index.html">Home</a>
+        <a href="stories.html" class="active">Stories</a>
+        <a href="about.html">About</a>
+        <a href="team.html">Team</a>
+        <a class="btn btn-primary" href="contact.html">Get Help</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">☰</button>
+    </div>
+  </header>
+
+  <section class="page-hero small">
+    <div class="container">
+      <h1>Anonymous Stories</h1>
+      <p class="muted">Share safely. Read and support others at VPS. You are believed.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid two-cols">
+      <div>
+        <h2 class="section-title">Share your story</h2>
+        <form id="story-form" class="card form">
+          <label for="story-text">Your story (no names needed)</label>
+          <textarea id="story-text" rows="6" placeholder="Write here..." required></textarea>
+          <div class="form-row">
+            <label for="story-feelings">How are you feeling?</label>
+            <select id="story-feelings">
+              <option>Overwhelmed</option>
+              <option>Scared</option>
+              <option>Confused</option>
+              <option>Hopeful</option>
+              <option>Angry</option>
+              <option>Sad</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Post Anonymously</button>
+          <p class="muted small">Stored locally in your browser. For immediate help, call <a href="tel:+18001234567">+1 (800) 123-4567</a>.</p>
+        </form>
+      </div>
+      <div>
+        <h2 class="section-title">Latest stories</h2>
+        <div id="stories-list" class="stories-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="logo">Men's Support Network</div>
+        <p class="muted">Confidential support for men facing domestic and marital abuse.</p>
+      </div>
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="team.html">Team</a>
+        <a href="stories.html">Stories</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-meta">
+        <p>Hotline: <a href="tel:+18001234567">+1 (800) 123-4567</a></p>
+        <p>Email: <a href="mailto:help@menssupport.org">help@menssupport.org</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    window.MSN && window.MSN.initStories && window.MSN.initStories();
+  </script>
+</body>
+</html>
+
+
