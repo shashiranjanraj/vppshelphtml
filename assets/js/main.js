@@ -38,11 +38,7 @@
 
   // Stories page functionality
   const STORAGE_KEY = 'msn_anonymous_stories_v1';
-  const DEFAULT_API_ORIGIN = 'http://localhost:8090';
-  const API_ORIGIN = (location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')
-    ? DEFAULT_API_ORIGIN
-    : '';
-  const API_ENDPOINT = `${API_ORIGIN}/api/posts`;
+  
   function loadStories() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
@@ -51,6 +47,7 @@
       return [];
     }
   }
+  
   function saveStories(list) {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
@@ -58,23 +55,46 @@
       // noop
     }
   }
+  
   async function renderStories() {
     const mount = document.getElementById('stories-list');
     if (!mount) return;
+    
     try {
-      const res = await fetch(`${API_ENDPOINT}?limit=50`, { headers: { 'Accept': 'application/json' } });
-      if (!res.ok) throw new Error('bad status');
-      const posts = await res.json();
-      if (!Array.isArray(posts) || posts.length === 0) {
+      // Check if Firestore is available
+      if (!window.db) {
+        throw new Error('Firestore not initialized');
+      }
+      
+      // Import Firestore functions
+      const { collection, query, orderBy, limit, getDocs } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
+      
+      // Query Firestore for posts
+      const postsRef = collection(window.db, 'posts');
+      const q = query(postsRef, orderBy('createdAt', 'desc'), limit(50));
+      const querySnapshot = await getDocs(q);
+      
+      const posts = [];
+      querySnapshot.forEach((doc) => {
+        posts.push({
+          id: doc.id,
+          ...doc.data(),
+          createdAt: doc.data().createdAt?.toDate?.() || new Date(doc.data().createdAt)
+        });
+      });
+      
+      if (posts.length === 0) {
         mount.innerHTML = '<p class="muted">No stories yet. Be the first to share.</p>';
         return;
       }
+      
       mount.innerHTML = posts.map((p) => {
         const date = new Date(p.createdAt).toLocaleString();
         return `<div class="story"><p>${escapeHtml(p.story)}</p><div class="meta">Feeling: ${escapeHtml(p.feeling || 'Unknown')} • ${date}</div></div>`;
       }).join('');
     } catch (e) {
-      // Fallback to local storage if API not reachable
+      console.error('Error loading stories from Firestore:', e);
+      // Fallback to local storage if Firestore not available
       const stories = loadStories();
       if (stories.length === 0) {
         mount.innerHTML = '<p class="muted">No stories yet (offline). Be the first to share.</p>';
@@ -94,6 +114,60 @@
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#039;');
   }
+
+  // Home page: render latest stories (top 5)
+  async function renderLatestStoriesHome() {
+    const mount = document.getElementById('latest-stories-home');
+    if (!mount) return;
+    
+    try {
+      // Check if Firestore is available
+      if (!window.db) {
+        throw new Error('Firestore not initialized');
+      }
+      
+      // Import Firestore functions
+      const { collection, query, orderBy, limit, getDocs } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
+      
+      // Query Firestore for posts
+      const postsRef = collection(window.db, 'posts');
+      const q = query(postsRef, orderBy('createdAt', 'desc'), limit(5));
+      const querySnapshot = await getDocs(q);
+      
+      const posts = [];
+      querySnapshot.forEach((doc) => {
+        posts.push({
+          id: doc.id,
+          ...doc.data(),
+          createdAt: doc.data().createdAt?.toDate?.() || new Date(doc.data().createdAt)
+        });
+      });
+      
+      if (posts.length === 0) {
+        mount.innerHTML = '<p class="muted">No stories yet.</p>';
+        return;
+      }
+      
+      mount.innerHTML = posts.map((p) => {
+        const snippet = String(p.story || '').slice(0, 160);
+        const date = new Date(p.createdAt).toLocaleDateString();
+        return `<div class="story-item"><p>${escapeHtml(snippet)}${p.story && p.story.length > 160 ? '…' : ''}</p><div class="meta">Feeling: ${escapeHtml(p.feeling || 'Unknown')} • ${date}</div></div>`;
+      }).join('');
+    } catch (e) {
+      console.error('Error loading stories from Firestore:', e);
+      // Fallback to local storage if Firestore not available
+      const stories = loadStories().slice(0, 5);
+      if (stories.length === 0) {
+        mount.innerHTML = '<p class="muted">No stories yet (offline).</p>';
+        return;
+      }
+      mount.innerHTML = stories.map((s) => {
+        const snippet = String(s.text || '').slice(0, 160);
+        const date = new Date(s.date).toLocaleDateString();
+        return `<div class="story-item"><p>${escapeHtml(snippet)}${s.text && s.text.length > 160 ? '…' : ''}</p><div class="meta">Feeling: ${escapeHtml(s.feelings || 'Unknown')} • ${date}</div></div>`;
+      }).join('');
+    }
+  }
   window.MSN.initStories = function() {
     const form = document.getElementById('story-form');
     const textarea = document.getElementById('story-text');
@@ -105,22 +179,67 @@
       const text = textarea.value.trim();
       const feeling = feelings.value || 'Unknown';
       if (!text) return;
+      
+      // Client-side validation to match Firestore rules
+      if (text.length === 0) {
+        alert('Please enter your story.');
+        return;
+      }
+      if (text.length > 4000) {
+        alert('Story is too long. Maximum 4000 characters.');
+        return;
+      }
+      if (feeling.length > 100) {
+        alert('Feeling field is too long.');
+        return;
+      }
+      
       // Collect anonymous client metadata
-      const clientTz = (Intl && Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone) || '';
-      const clientLang = navigator.language || (navigator.languages && navigator.languages[0]) || '';
-      const screenStr = (typeof screen !== 'undefined') ? `${screen.width}x${screen.height}@${window.devicePixelRatio || 1}` : '';
-      const platform = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+      let clientTz = (Intl && Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone) || '';
+      let clientLang = navigator.language || (navigator.languages && navigator.languages[0]) || '';
+      let screenStr = (typeof screen !== 'undefined') ? `${screen.width}x${screen.height}@${window.devicePixelRatio || 1}` : '';
+      let platform = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+      
+      // Validate metadata sizes to match Firestore rules
+      if (clientTz.length > 100) {
+        clientTz = clientTz.substring(0, 100);
+      }
+      if (clientLang.length > 20) {
+        clientLang = clientLang.substring(0, 20);
+      }
+      if (screenStr.length > 100) {
+        screenStr = screenStr.substring(0, 100);
+      }
+      if (platform.length > 200) {
+        platform = platform.substring(0, 200);
+      }
+      
       try {
-        const res = await fetch(API_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ story: text, feeling, clientTz, clientLang, screen: screenStr, platform })
+        // Check if Firestore is available
+        if (!window.db) {
+          throw new Error('Firestore not initialized');
+        }
+        
+        // Import Firestore functions
+        const { collection, addDoc, Timestamp } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
+        
+        // Add post to Firestore
+        const postsRef = collection(window.db, 'posts');
+        await addDoc(postsRef, {
+          story: text,
+          feeling: feeling,
+          clientTz: clientTz,
+          clientLang: clientLang,
+          screen: screenStr,
+          platform: platform,
+          createdAt: Timestamp.now()
         });
-        if (!res.ok) throw new Error('Failed to submit');
-        // Clear and re-render from server
+        
+        // Clear form and re-render
         textarea.value = '';
         await renderStories();
       } catch (err) {
+        console.error('Error submitting to Firestore:', err);
         // Offline/local fallback
         const stories = loadStories();
         stories.unshift({ text, feelings: feeling, date: new Date().toISOString() });
@@ -130,6 +249,26 @@
       }
     });
   };
+
+  // Auto-render latest stories on home if mount exists
+  if (document.getElementById('latest-stories-home')) {
+    // Wait for Firebase to initialize before rendering
+    async function waitForFirebaseAndRender() {
+      let attempts = 0;
+      while (!window.firebaseReady && attempts < 50) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+        attempts++;
+      }
+      
+      if (window.firebaseReady && window.db) {
+        renderLatestStoriesHome();
+      } else {
+        console.warn('Firebase not initialized, skipping latest stories');
+      }
+    }
+    
+    waitForFirebaseAndRender();
+  }
 })();
 
 

@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Posts collection - anonymous stories
+    match /posts/{postId} {
+      // Allow anyone to read posts
+      allow read: if true;
+      
+      // Only allow creating new posts (no updates or deletes)
+      allow create: if request.resource.data.story is string
+                    && request.resource.data.story.size() > 0
+                    && request.resource.data.story.size() <= 4000
+                    && request.resource.data.feeling is string
+                    && request.resource.data.feeling.size() <= 100
+                    && request.resource.data.clientTz is string
+                    && request.resource.data.clientTz.size() <= 100
+                    && request.resource.data.clientLang is string
+                    && request.resource.data.clientLang.size() <= 20
+                    && request.resource.data.createdAt is timestamp
+                    && request.resource.data.createdAt <= request.time
+                    && (request.resource.data.get('screen', '') is string)
+                    && request.resource.data.get('screen', '').size() <= 100
+                    && (request.resource.data.get('platform', '') is string)
+                    && request.resource.data.get('platform', '').size() <= 200;
+      
+      // No updates or deletes allowed for anonymous posts
+      allow update, delete: if false;
+    }
+    
+    // Deny all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+

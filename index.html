@@ -10,6 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤝</text></svg>">
+  <!-- Firebase SDKs -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+    import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+    import { firebaseConfig } from './assets/js/firebase-config.js';
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    window.db = getFirestore(app);
+    window.firebaseReady = true;
+    console.log('Firebase initialized');
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -94,6 +106,14 @@
         <a class="btn btn-primary" href="contact.html">Get Help</a>
         <a class="btn btn-secondary" href="stories.html">Share your story</a>
       </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Latest stories</h2>
+      <div id="latest-stories-home" class="stories-list"></div>
+      <p><a class="link" href="stories.html">Read more stories →</a></p>
     </div>
   </section>
 

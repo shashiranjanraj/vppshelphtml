@@ -10,6 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗣️</text></svg>">
+  <!-- Firebase SDKs -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+    import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+    import { firebaseConfig } from './assets/js/firebase-config.js';
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    window.db = getFirestore(app);
+    window.firebaseReady = true;
+    console.log('Firebase initialized');
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -83,7 +95,22 @@
 
   <script src="assets/js/main.js"></script>
   <script>
-    window.MSN && window.MSN.initStories && window.MSN.initStories();
+    // Wait for Firebase to initialize before calling initStories
+    async function waitForFirebaseAndInit() {
+      let attempts = 0;
+      while (!window.firebaseReady && attempts < 50) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+        attempts++;
+      }
+      
+      if (window.firebaseReady && window.db) {
+        window.MSN && window.MSN.initStories && window.MSN.initStories();
+      } else {
+        console.error('Firebase failed to initialize after 5 seconds');
+      }
+    }
+    
+    waitForFirebaseAndInit();
   </script>
 </body>
 </html>
