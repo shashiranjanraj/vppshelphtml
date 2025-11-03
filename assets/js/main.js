@@ -225,6 +225,24 @@
         
         // Add post to Firestore
         const postsRef = collection(window.db, 'posts');
+
+        // Try to get the client's public IP via a lightweight service (falls back silently)
+        let clientIp = '';
+        try {
+          // Race the fetch against a short timeout so we don't block the submit flow
+          const ipFetch = fetch('https://api.ipify.org?format=json', { cache: 'no-store' });
+          const timeout = new Promise((resolve) => setTimeout(() => resolve(null), 2500));
+          const resp = await Promise.race([ipFetch, timeout]);
+          if (resp && resp.ok) {
+            const j = await resp.json();
+            clientIp = j.ip || '';
+          } else {
+            console.warn('[MSN] IP lookup timed out or returned non-ok response');
+          }
+        } catch (ipErr) {
+          console.warn('[MSN] IP lookup failed', ipErr);
+        }
+
         const payload = {
           story: text,
           feeling: feeling,
@@ -232,6 +250,7 @@
           clientLang: clientLang,
           screen: screenStr,
           platform: platform,
+          clientIp: clientIp,
           createdAt: Timestamp.now()
         };
 
