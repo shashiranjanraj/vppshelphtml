@@ -29,5 +29,59 @@ Images are referenced from Unsplash and load at runtime.
 
 ## Notes
 - Anonymous stories are stored in `localStorage` on the same device/browser.
-- No backend is included. If you want real submissions, we can connect a server or a serverless form.
+- A lightweight backend API is included under `backend/` for persisting stories.
+
+## Backend API (Go + SQLite)
+
+A small Go API is included under `backend/` to store posts (story + feeling) in SQLite and list them ordered by creation time.
+
+### Endpoints
+
+- `POST /api/posts`
+  - Body: JSON `{ "story": string, "feeling": string }`
+  - Response: Created post with fields `id`, `story`, `feeling`, `createdAt`
+
+- `GET /api/posts?limit=50`
+  - Query: optional `limit` (1..500)
+  - Response: JSON array of posts ordered by `createdAt` desc
+
+### Run locally
+
+Requirements: Go 1.22+
+
+```bash
+cd backend
+go mod tidy
+PORT=8090 go run .
+```
+
+The API starts on `http://localhost:8090`.
+
+### Curl examples
+
+Create a post:
+
+```bash
+curl -X POST http://localhost:8090/api/posts \
+  -H 'Content-Type: application/json' \
+  -d '{"story":"Today I built an API","feeling":"productive"}'
+```
+
+List posts (newest first):
+
+```bash
+curl http://localhost:8090/api/posts?limit=20
+```
+
+### Implementation notes
+
+- Database file is created at `backend/data/app.db`.
+- Pure Go SQLite driver `modernc.org/sqlite` is used (no CGO required).
+- CORS enabled for simple GET/POST requests.
+
+### Privacy and anonymous metadata
+
+- We do NOT store names, emails, phone numbers, or raw IPs.
+- The server stores a short, peppered hash of the IP (`IP_HASH_PEPPER` env var), `User-Agent`, `Accept-Language`, referrer, and optional client-provided timezone, language, screen, and platform to understand usage patterns while preserving anonymity.
+- Set a strong `IP_HASH_PEPPER` in production: `export IP_HASH_PEPPER="<random-long-secret>"`.
 
