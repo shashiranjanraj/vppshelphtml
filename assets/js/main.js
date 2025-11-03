@@ -225,7 +225,7 @@
         
         // Add post to Firestore
         const postsRef = collection(window.db, 'posts');
-        await addDoc(postsRef, {
+        const payload = {
           story: text,
           feeling: feeling,
           clientTz: clientTz,
@@ -233,7 +233,17 @@
           screen: screenStr,
           platform: platform,
           createdAt: Timestamp.now()
-        });
+        };
+
+        // Debug logs: show payload and track success/failure
+        try {
+          console.log('[MSN] Submitting story to Firestore', { payload });
+          const docRef = await addDoc(postsRef, payload);
+          console.log('[MSN] Firestore addDoc succeeded, id=', docRef.id);
+        } catch (fireErr) {
+          console.error('[MSN] Error submitting to Firestore:', fireErr);
+          throw fireErr; // rethrow so outer catch handles fallback
+        }
         
         // Clear form and re-render
         textarea.value = '';
