@@ -1,20 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WREBS3RJ9B"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-WREBS3RJ9B');
-  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vivahit Pidit Sangh (VPS) | Stories</title>
   <meta name="description" content="Anonymous stories from men experiencing domestic violence. Share your experience safely.">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1456600166710107" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,7 +14,7 @@
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
     import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
-    import { firebaseConfig } from './assets/js/firebase-config.js?v=2.0.0';
+    import { firebaseConfig } from './assets/js/firebase-config.js';
     
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
@@ -38,11 +28,12 @@
     <div class="container header-inner">
       <a class="logo" href="index.html">Vivahit Pidit Sangh (VPS)</a>
       <nav class="nav" id="primary-nav">
-        <a href="index.html">Home</a>
-        <a href="stories.html" class="active">Stories</a>
-        <a href="about.html">About</a>
-        <a href="team.html">Team</a>
-        <a class="btn btn-primary" href="contact.html">Get Help</a>
+  <a href="index.html">Home</a>
+  <a href="stories.html" class="active">Stories</a>
+  <a href="about.html">About</a>
+  <a href="team.html">Team</a>
+  <a href="news.html">News</a>
+  <a class="btn btn-primary" href="contact.html">Get Help</a>
       </nav>
       <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">☰</button>
     </div>
@@ -103,7 +94,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=2.0.0"></script>
+  <script src="assets/js/main.js"></script>
   <script>
     // Wait for Firebase to initialize before calling initStories
     async function waitForFirebaseAndInit() {
