@@ -3,11 +3,11 @@
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
   // Mobile nav
-  const navToggle = $('#nav-toggle');
-  const nav = $('#primary-nav');
-  if (navToggle && nav) {
+  const navToggle = document.getElementById('nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  if (navToggle && mobileNav) {
     navToggle.addEventListener('click', () => {
-      nav.classList.toggle('show');
+      mobileNav.classList.toggle('hidden');
     });
   }
 
@@ -90,7 +90,7 @@
       
       mount.innerHTML = posts.map((p) => {
         const date = new Date(p.createdAt).toLocaleString();
-        return `<div class="story"><p>${escapeHtml(p.story)}</p><div class="meta">Feeling: ${escapeHtml(p.feeling || 'Unknown')} • ${date}</div></div>`;
+        return `<div class="bg-white p-6 rounded-lg shadow-md border border-slate-200"><p class="text-slate-600">${escapeHtml(p.story)}</p><div class="mt-4 text-sm text-slate-500">Feeling: ${escapeHtml(p.feeling || 'Unknown')} • ${date}</div></div>`;
       }).join('');
     } catch (e) {
       console.error('Error loading stories from Firestore:', e);
@@ -102,7 +102,7 @@
       }
       mount.innerHTML = stories.map((s) => {
         const date = new Date(s.date).toLocaleString();
-        return `<div class="story"><p>${escapeHtml(s.text)}</p><div class="meta">Feeling: ${escapeHtml(s.feelings)} • ${date}</div></div>`;
+        return `<div class="bg-white p-6 rounded-lg shadow-md border border-slate-200"><p class="text-slate-600">${escapeHtml(s.text)}</p><div class="mt-4 text-sm text-slate-500">Feeling: ${escapeHtml(s.feelings)} • ${date}</div></div>`;
       }).join('');
     }
   }
@@ -151,7 +151,7 @@
       mount.innerHTML = posts.map((p) => {
         const snippet = String(p.story || '').slice(0, 160);
         const date = new Date(p.createdAt).toLocaleDateString();
-        return `<div class="story-item"><p>${escapeHtml(snippet)}${p.story && p.story.length > 160 ? '…' : ''}</p><div class="meta">Feeling: ${escapeHtml(p.feeling || 'Unknown')} • ${date}</div></div>`;
+        return `<div class="bg-white p-6 rounded-lg shadow-md border border-slate-200"><p class="text-slate-600">${escapeHtml(snippet)}${p.story && p.story.length > 160 ? '…' : ''}</p><div class="mt-4 text-sm text-slate-500">Feeling: ${escapeHtml(p.feeling || 'Unknown')} • ${date}</div></div>`;
       }).join('');
     } catch (e) {
       console.error('Error loading stories from Firestore:', e);
@@ -164,7 +164,7 @@
       mount.innerHTML = stories.map((s) => {
         const snippet = String(s.text || '').slice(0, 160);
         const date = new Date(s.date).toLocaleDateString();
-        return `<div class="story-item"><p>${escapeHtml(snippet)}${s.text && s.text.length > 160 ? '…' : ''}</p><div class="meta">Feeling: ${escapeHtml(s.feelings || 'Unknown')} • ${date}</div></div>`;
+        return `<div class="bg-white p-6 rounded-lg shadow-md border border-slate-200"><p class="text-slate-600">${escapeHtml(snippet)}${s.text && s.text.length > 160 ? '…' : ''}</p><div class="mt-4 text-sm text-slate-500">Feeling: ${escapeHtml(s.feelings || 'Unknown')} • ${date}</div></div>`;
       }).join('');
     }
   }
@@ -270,5 +270,3 @@
     waitForFirebaseAndRender();
   }
 })();
-
-

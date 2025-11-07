@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WREBS3RJ9B"></script>
@@ -22,112 +22,146 @@
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/png" href="/favicon.png">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1456600166710107" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📞</text></svg>">
+  <style>
+    :root { font-family: 'Inter', sans-serif; }
+    @supports (font-variation-settings: normal) {
+      :root { font-family: 'Inter var', sans-serif; }
+    }
+  </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">Vivahit Pidit Sangh (VPS)</a>
-      <nav class="nav" id="primary-nav">
-  <a href="index.html">Home</a>
-  <a href="stories.html">Stories</a>
-  <a href="about.html">About</a>
-  <a href="team.html">Team</a>
-  <a href="news.html">News</a>
-  <a class="btn btn-primary" href="contact.html">Get Help</a>
-      </nav>
-      <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">☰</button>
+<body class="bg-slate-50 text-slate-700">
+  <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a class="text-xl font-bold text-slate-900" href="index.html">Vivahit Pidit Sangh (VPS)</a>
+        <nav class="hidden md:flex items-center space-x-8" id="primary-nav">
+          <a href="index.html" class="hover:text-sky-600 transition">Home</a>
+          <a href="stories.html" class="hover:text-sky-600 transition">Stories</a>
+          <a href="about.html" class="hover:text-sky-600 transition">About</a>
+          <a href="team.html" class="hover:text-sky-600 transition">Team</a>
+          <a href="news.html" class="hover:text-sky-600 transition">News</a>
+          <a class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition" href="contact.html">Get Help</a>
+        </nav>
+        <button class="md:hidden text-slate-800" aria-label="Open menu" id="nav-toggle">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
     </div>
+    <!-- Mobile Nav -->
+    <nav class="hidden md:hidden p-4 space-y-2" id="mobile-nav">
+        <a href="index.html" class="block hover:text-sky-600 transition">Home</a>
+        <a href="stories.html" class="block hover:text-sky-600 transition">Stories</a>
+        <a href="about.html" class="block hover:text-sky-600 transition">About</a>
+        <a href="team.html" class="block hover:text-sky-600 transition">Team</a>
+        <a href="news.html" class="block hover:text-sky-600 transition">News</a>
+        <a class="block bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition text-center" href="contact.html">Get Help</a>
+      </nav>
   </header>
 
-  <section class="emergency">
-    <div class="container emergency-inner">
-      <strong>Immediate danger?</strong>
-      <span>Call emergency services in your area.</span>
-    </div>
-  </section>
-
-  <section class="page-hero small">
-    <div class="container">
-      <h1>Contact VPS</h1>
-      <p class="muted">We’re here to listen. Choose the support that works for you.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container grid features-grid">
-      <div class="card feature">
-        <div class="icon">📞</div>
-        <h3>24/7 Hotline</h3>
-        <p>Speak with a trained listener anytime.</p>
-        <a class="btn btn-primary" href="tel:+919876543210">Call +91 -9876543210</a>
-      </div>
-      <div class="card feature">
-        <div class="icon">📧</div>
-        <h3>Email Support</h3>
-        <p>Prefer writing? We reply within 24 hours.</p>
-        <a class="btn btn-secondary" href="mailto:help@menssupport.org">help@menssupport.org</a>
-      </div>
-      <div class="card feature">
-        <div class="icon">🧠</div>
-        <h3>Book Counseling</h3>
-        <p>Confidential 1:1 virtual sessions.</p>
-        <a class="btn btn-secondary" href="#" onclick="window.MSN && window.MSN.openModal && window.MSN.openModal('booking-modal');return false;">Request a session</a>
+  <main>
+    <div class="bg-yellow-100 border-b border-yellow-200 text-yellow-800">
+      <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 text-center">
+        <strong>Immediate danger?</strong>
+        <span class="ml-2">Call emergency services in your area.</span>
       </div>
     </div>
-  </section>
 
-  <section class="section highlight">
-    <div class="container highlight-inner">
-      <div class="highlight-copy">
-        <h2>What to expect</h2>
-        <ul class="checklist">
-          <li>Compassionate, judgment-free support</li>
-          <li>Confidential conversations</li>
-          <li>Resources for safety and planning</li>
-          <li>Referrals to local services</li>
-        </ul>
+    <section class="py-16 sm:py-24 text-center">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">Contact VPS</h1>
+        <p class="mt-4 text-lg text-slate-600">We’re here to listen. Choose the support that works for you.</p>
       </div>
-      <img class="highlight-media" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop" alt="Contact support">
-    </div>
-  </section>
+    </section>
 
-  <div id="booking-modal" class="modal" aria-hidden="true">
-    <div class="modal-dialog">
-      <button class="modal-close" aria-label="Close" onclick="window.MSN && window.MSN.closeModal && window.MSN.closeModal('booking-modal')">✕</button>
-      <h3>Request a Counseling Session</h3>
-      <form id="booking-form" class="form">
-        <label for="bf-name">First name (optional)</label>
-        <input id="bf-name" type="text" placeholder="Your name (optional)">
-        <label for="bf-email">Email (optional)</label>
-        <input id="bf-email" type="email" placeholder="you@example.com">
-        <label for="bf-notes">Notes</label>
-        <textarea id="bf-notes" rows="4" placeholder="What would you like to talk about?"></textarea>
-        <button type="submit" class="btn btn-primary">Submit request</button>
-        <p class="muted small">We will contact you within 24 hours. For urgent help, call the hotline above.</p>
+    <section class="pb-20 sm:pb-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-lg text-center border border-slate-200 flex flex-col">
+          <div class="text-5xl">📞</div>
+          <h3 class="mt-4 text-xl font-bold text-slate-900">24/7 Hotline</h3>
+          <p class="mt-2 text-slate-600 flex-grow">Speak with a trained listener anytime.</p>
+          <a class="mt-6 w-full text-center bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-6 rounded-lg transition" href="tel:+919876543210">Call +91 -9876543210</a>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-lg text-center border border-slate-200 flex flex-col">
+          <div class="text-5xl">📧</div>
+          <h3 class="mt-4 text-xl font-bold text-slate-900">Email Support</h3>
+          <p class="mt-2 text-slate-600 flex-grow">Prefer writing? We reply within 24 hours.</p>
+          <a class="mt-6 w-full text-center bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-6 rounded-lg transition" href="mailto:help@menssupport.org">help@menssupport.org</a>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-lg text-center border border-slate-200 flex flex-col">
+          <div class="text-5xl">🧠</div>
+          <h3 class="mt-4 text-xl font-bold text-slate-900">Book Counseling</h3>
+          <p class="mt-2 text-slate-600 flex-grow">Confidential 1:1 virtual sessions.</p>
+          <a class="mt-6 w-full text-center bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-6 rounded-lg transition" href="#" onclick="window.MSN && window.MSN.openModal && window.MSN.openModal('booking-modal');return false;">Request a session</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 sm:py-24 bg-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-3xl font-extrabold text-slate-900">What to Expect</h2>
+          <ul class="mt-6 space-y-4 text-lg text-slate-600">
+            <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✓</span> Compassionate, judgment-free support</li>
+            <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✓</span> Confidential conversations</li>
+            <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✓</span> Resources for safety and planning</li>
+            <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✓</span> Referrals to local services</li>
+          </ul>
+        </div>
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop" alt="Contact support" class="rounded-2xl shadow-2xl">
+      </div>
+    </section>
+  </main>
+
+  <div id="booking-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4" aria-hidden="true">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-lg relative">
+      <button class="absolute top-4 right-4 text-slate-500 hover:text-slate-800" aria-label="Close" onclick="window.MSN && window.MSN.closeModal && window.MSN.closeModal('booking-modal')">✕</button>
+      <h3 class="text-2xl font-bold text-slate-900">Request a Counseling Session</h3>
+      <form id="booking-form" class="mt-6 space-y-4">
+        <div>
+          <label for="bf-name" class="block text-sm font-medium text-slate-700">First name (optional)</label>
+          <input id="bf-name" type="text" placeholder="Your name (optional)" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm">
+        </div>
+        <div>
+          <label for="bf-email" class="block text-sm font-medium text-slate-700">Email (optional)</label>
+          <input id="bf-email" type="email" placeholder="you@example.com" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm">
+        </div>
+        <div>
+          <label for="bf-notes" class="block text-sm font-medium text-slate-700">Notes</label>
+          <textarea id="bf-notes" rows="4" placeholder="What would you like to talk about?" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm"></textarea>
+        </div>
+        <button type="submit" class="w-full text-center bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-6 rounded-lg transition">Submit request</button>
+        <p class="text-sm text-slate-500">We will contact you within 24 hours. For urgent help, call the hotline above.</p>
       </form>
     </div>
   </div>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <div class="logo">Vivahit Pidit Sangh (VPS)</div>
-        <p class="muted">Confidential support for men facing domestic and marital abuse.</p>
-      </div>
-      <div class="footer-links">
-        <a href="about.html">About</a>
-        <a href="team.html">Team</a>
-        <a href="stories.html">Stories</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-meta">
-        <p>Hotline: <a href="tel:+919876543210">+91 -9876543210</a></p>
-        <p>Email: <a href="mailto:help@menssupport.org">help@menssupport.org</a></p>
+  <footer class="bg-slate-100 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="text-lg font-bold text-slate-900">Vivahit Pidit Sangh (VPS)</div>
+          <p class="mt-2 text-sm text-slate-600">Confidential support for men facing domestic and marital abuse.</p>
+        </div>
+        <div class="md:justify-self-center">
+          <h3 class="font-semibold text-slate-900">Quick Links</h3>
+          <ul class="mt-4 space-y-2">
+            <li><a href="about.html" class="text-sm text-slate-600 hover:text-sky-600">About</a></li>
+            <li><a href="team.html" class="text-sm text-slate-600 hover:text-sky-600">Team</a></li>
+            <li><a href="stories.html" class="text-sm text-slate-600 hover:text-sky-600">Stories</a></li>
+            <li><a href="news.html" class="text-sm text-slate-600 hover:text-sky-600">News</a></li>
+            <li><a href="contact.html" class="text-sm text-slate-600 hover:text-sky-600">Contact</a></li>
+          </ul>
+        </div>
+        <div class="md:justify-self-end">
+          <h3 class="font-semibold text-slate-900">Contact Us</h3>
+          <ul class="mt-4 space-y-2">
+            <li class="text-sm text-slate-600">Hotline: <a href="tel:+919876543210" class="hover:text-sky-600">+91 -9876543210</a></li>
+            <li class="text-sm text-slate-600">Email: <a href="mailto:help@menssupport.org" class="hover:text-sky-600">help@menssupport.org</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </footer>
@@ -138,5 +172,3 @@
   </script>
 </body>
 </html>
-
-

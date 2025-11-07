@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WREBS3RJ9B"></script>
@@ -21,93 +21,125 @@
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/png" href="/favicon.png">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1456600166710107" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📰</text></svg>">
+  <style>
+    :root { font-family: 'Inter', sans-serif; }
+    @supports (font-variation-settings: normal) {
+      :root { font-family: 'Inter var', sans-serif; }
+    }
+  </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">Vivahit Pidit Sangh (VPS)</a>
-      <nav class="nav" id="primary-nav">
-        <a href="index.html">Home</a>
-        <a href="stories.html">Stories</a>
-        <a href="about.html">About</a>
-        <a href="team.html">Team</a>
-        <a href="news.html" class="active">News</a>
-        <a class="btn btn-primary" href="contact.html">Get Help</a>
-      </nav>
-      <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">☰</button>
+<body class="bg-slate-50 text-slate-700">
+  <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a class="text-xl font-bold text-slate-900" href="index.html">Vivahit Pidit Sangh (VPS)</a>
+        <nav class="hidden md:flex items-center space-x-8" id="primary-nav">
+          <a href="index.html" class="hover:text-sky-600 transition">Home</a>
+          <a href="stories.html" class="hover:text-sky-600 transition">Stories</a>
+          <a href="about.html" class="hover:text-sky-600 transition">About</a>
+          <a href="team.html" class="hover:text-sky-600 transition">Team</a>
+          <a href="news.html" class="text-sky-600 font-semibold">News</a>
+          <a class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition" href="contact.html">Get Help</a>
+        </nav>
+        <button class="md:hidden text-slate-800" aria-label="Open menu" id="nav-toggle">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
     </div>
+    <!-- Mobile Nav -->
+    <nav class="hidden md:hidden p-4 space-y-2" id="mobile-nav">
+        <a href="index.html" class="block hover:text-sky-600 transition">Home</a>
+        <a href="stories.html" class="block hover:text-sky-600 transition">Stories</a>
+        <a href="about.html" class="block hover:text-sky-600 transition">About</a>
+        <a href="team.html" class="block hover:text-sky-600 transition">Team</a>
+        <a href="news.html" class="block text-sky-600 font-semibold">News</a>
+        <a class="block bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition text-center" href="contact.html">Get Help</a>
+      </nav>
   </header>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Latest News</h2>
-      <div id="news-list" class="news-list">
-        <article class="news-item">
-          <h3>VPS Launches New Support Hotline</h3>
-          <p>We are excited to announce our new 24/7 support hotline for men facing domestic violence. Call us anytime for confidential help.</p>
-          <span class="news-date">November 2025</span>
-        </article>
-        <article class="news-item">
-          <h3>Upcoming Webinar: Mental Health for Men</h3>
-          <p>Join our free webinar on mental health strategies for men in difficult relationships. Register now to reserve your spot.</p>
-          <span class="news-date">October 2025</span>
-        </article>
+  <main>
+    <section class="py-16 sm:py-24 bg-slate-100">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">News & Articles</h1>
+        <p class="mt-4 text-lg text-slate-600">Updates from VPS and relevant articles on men's rights and support.</p>
       </div>
+    </section>
 
-      <section class="section" style="margin-top:2em;">
-        <h2 class="section-title">Featured News &amp; Articles</h2>
-        <div class="news-list">
-          <article class="news-item">
-            <h3><a href="https://thediplomat.com/2025/03/do-indias-domestic-violence-laws-discriminate-against-men/" target="_blank" rel="noopener">Do India’s Domestic Violence Laws Discriminate Against Men?</a></h3>
-            <span class="news-date">March 2025 &mdash; The Diplomat</span>
-            <p class="news-desc">An analysis of India's domestic violence laws and their impact on men, raising questions about gender neutrality and legal reform.</p>
+    <section class="py-20 sm:py-24">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-slate-900">Latest News from VPS</h2>
+        <div class="mt-8 space-y-8">
+          <article class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+            <h3 class="text-xl font-bold text-slate-900">VPS Launches New Support Hotline</h3>
+            <p class="mt-2 text-slate-600">We are excited to announce our new 24/7 support hotline for men facing domestic violence. Call us anytime for confidential help.</p>
+            <span class="mt-4 block text-sm text-slate-500">November 2025</span>
           </article>
-          <article class="news-item">
-            <h3><a href="https://www.republicworld.com/india/domestic-violence-against-men-how-to-file-a-complaint" target="_blank" rel="noopener">Domestic Violence Against Men: How to File a Complaint</a></h3>
-            <span class="news-date">Republic World</span>
-            <p class="news-desc">A practical guide for men on recognizing domestic violence and the legal steps to file a complaint in India.</p>
-          </article>
-          <article class="news-item">
-            <h3><a href="https://economictimes.indiatimes.com/wealth/legal/will/are-men-defenceless-against-domestic-violence-laws-what-sc-says-about-mens-rights-in-these-cases/articleshow/118726168.cms?from=mdr" target="_blank" rel="noopener">Are Men Defenceless Against Domestic Violence Laws? What SC Says</a></h3>
-            <span class="news-date">Economic Times</span>
-            <p class="news-desc">The Supreme Court's perspective on men's rights in domestic violence cases and the legal challenges faced by men.</p>
-          </article>
-          <article class="news-item">
-            <h3><a href="https://voiceformenindia.com/domestic-violence-against-men-delhi-hc-order-underscores-principles-of-gender-neutral-justice-mens-rights-ngo/" target="_blank" rel="noopener">Delhi HC Order Underscores Principles of Gender Neutral Justice</a></h3>
-            <span class="news-date">Voice For Men India</span>
-            <p class="news-desc">Delhi High Court's order highlights the need for gender-neutral justice and the role of NGOs in supporting men's rights.</p>
-          </article>
-          <article class="news-item">
-            <h3><a href="https://www.newindianexpress.com/web-only/2025/Jan/23/domestic-violence-has-no-gender-why-husbands-need-legal-protection-too" target="_blank" rel="noopener">Domestic Violence Has No Gender: Why Husbands Need Legal Protection Too</a></h3>
-            <span class="news-date">Jan 2025 &mdash; New Indian Express</span>
-            <p class="news-desc">This article discusses why legal protection for husbands is essential and advocates for a gender-neutral approach to domestic violence.</p>
+          <article class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+            <h3 class="text-xl font-bold text-slate-900">Upcoming Webinar: Mental Health for Men</h3>
+            <p class="mt-2 text-slate-600">Join our free webinar on mental health strategies for men in difficult relationships. Register now to reserve your spot.</p>
+            <span class="mt-4 block text-sm text-slate-500">October 2025</span>
           </article>
         </div>
-      </section>
-    </div>
-  </section>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <div class="logo">Vivahit Pidit Sangh (VPS)</div>
-        <p class="muted">Confidential support for men facing domestic and marital abuse.</p>
+        <h2 class="mt-16 text-2xl font-bold text-slate-900">Featured News & Articles</h2>
+        <div class="mt-8 space-y-8">
+          <article class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+            <h3 class="text-xl font-bold text-slate-900 hover:text-sky-600"><a href="https://thediplomat.com/2025/03/do-indias-domestic-violence-laws-discriminate-against-men/" target="_blank" rel="noopener">Do India’s Domestic Violence Laws Discriminate Against Men?</a></h3>
+            <p class="mt-2 text-slate-600">An analysis of India's domestic violence laws and their impact on men, raising questions about gender neutrality and legal reform.</p>
+            <span class="mt-4 block text-sm text-slate-500">March 2025 &mdash; The Diplomat</span>
+          </article>
+          <article class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+            <h3 class="text-xl font-bold text-slate-900 hover:text-sky-600"><a href="https://www.republicworld.com/india/domestic-violence-against-men-how-to-file-a-complaint" target="_blank" rel="noopener">Domestic Violence Against Men: How to File a Complaint</a></h3>
+            <p class="mt-2 text-slate-600">A practical guide for men on recognizing domestic violence and the legal steps to file a complaint in India.</p>
+            <span class="mt-4 block text-sm text-slate-500">Republic World</span>
+          </article>
+          <article class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+            <h3 class="text-xl font-bold text-slate-900 hover:text-sky-600"><a href="https://economictimes.indiatimes.com/wealth/legal/will/are-men-defenceless-against-domestic-violence-laws-what-sc-says-about-mens-rights-in-these-cases/articleshow/118726168.cms?from=mdr" target="_blank" rel="noopener">Are Men Defenceless Against Domestic Violence Laws? What SC Says</a></h3>
+            <p class="mt-2 text-slate-600">The Supreme Court's perspective on men's rights in domestic violence cases and the legal challenges faced by men.</p>
+            <span class="mt-4 block text-sm text-slate-500">Economic Times</span>
+          </article>
+          <article class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+            <h3 class="text-xl font-bold text-slate-900 hover:text-sky-600"><a href="https://voiceformenindia.com/domestic-violence-against-men-delhi-hc-order-underscores-principles-of-gender-neutral-justice-mens-rights-ngo/" target="_blank" rel="noopener">Delhi HC Order Underscores Principles of Gender Neutral Justice</a></h3>
+            <p class="mt-2 text-slate-600">Delhi High Court's order highlights the need for gender-neutral justice and the role of NGOs in supporting men's rights.</p>
+            <span class="mt-4 block text-sm text-slate-500">Voice For Men India</span>
+          </article>
+          <article class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+            <h3 class="text-xl font-bold text-slate-900 hover:text-sky-600"><a href="https://www.newindianexpress.com/web-only/2025/Jan/23/domestic-violence-has-no-gender-why-husbands-need-legal-protection-too" target="_blank" rel="noopener">Domestic Violence Has No Gender: Why Husbands Need Legal Protection Too</a></h3>
+            <p class="mt-2 text-slate-600">This article discusses why legal protection for husbands is essential and advocates for a gender-neutral approach to domestic violence.</p>
+            <span class="mt-4 block text-sm text-slate-500">Jan 2025 &mdash; New Indian Express</span>
+          </article>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="about.html">About</a>
-        <a href="team.html">Team</a>
-        <a href="stories.html">Stories</a>
-        <a href="news.html">News</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-meta">
-        <p>Hotline: <a href="tel:+919876543210">+91 -9876543210</a></p>
-        <p>Email: <a href="mailto:help@menssupport.org">help@menssupport.org</a></p>
+    </section>
+  </main>
+
+  <footer class="bg-slate-100 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="text-lg font-bold text-slate-900">Vivahit Pidit Sangh (VPS)</div>
+          <p class="mt-2 text-sm text-slate-600">Confidential support for men facing domestic and marital abuse.</p>
+        </div>
+        <div class="md:justify-self-center">
+          <h3 class="font-semibold text-slate-900">Quick Links</h3>
+          <ul class="mt-4 space-y-2">
+            <li><a href="about.html" class="text-sm text-slate-600 hover:text-sky-600">About</a></li>
+            <li><a href="team.html" class="text-sm text-slate-600 hover:text-sky-600">Team</a></li>
+            <li><a href="stories.html" class="text-sm text-slate-600 hover:text-sky-600">Stories</a></li>
+            <li><a href="news.html" class="text-sm text-slate-600 hover:text-sky-600">News</a></li>
+            <li><a href="contact.html" class="text-sm text-slate-600 hover:text-sky-600">Contact</a></li>
+          </ul>
+        </div>
+        <div class="md:justify-self-end">
+          <h3 class="font-semibold text-slate-900">Contact Us</h3>
+          <ul class="mt-4 space-y-2">
+            <li class="text-sm text-slate-600">Hotline: <a href="tel:+919876543210" class="hover:text-sky-600">+91 -9876543210</a></li>
+            <li class="text-sm text-slate-600">Email: <a href="mailto:help@menssupport.org" class="hover:text-sky-600">help@menssupport.org</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </footer>

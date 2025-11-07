@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WREBS3RJ9B"></script>
@@ -27,93 +27,121 @@
     <meta property="og:url" content="https://vpshelp.in/">
     <meta property="og:type" content="website">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1456600166710107" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👥</text></svg>">
+  <style>
+    :root { font-family: 'Inter', sans-serif; }
+    @supports (font-variation-settings: normal) {
+      :root { font-family: 'Inter var', sans-serif; }
+    }
+  </style>
 </head>
-<body class="team-bg">
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">Vivahit Pidit Sangh (VPS)</a>
-      <nav class="nav" id="primary-nav">
-  <a href="index.html">Home</a>
-  <a href="stories.html">Stories</a>
-  <a href="about.html">About</a>
-  <a href="team.html" class="active">Team</a>
-  <a href="news.html">News</a>
-  <a class="btn btn-primary" href="contact.html">Get Help</a>
-      </nav>
-      <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">☰</button>
+<body class="bg-slate-50 text-slate-700">
+  <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a class="text-xl font-bold text-slate-900" href="index.html">Vivahit Pidit Sangh (VPS)</a>
+        <nav class="hidden md:flex items-center space-x-8" id="primary-nav">
+          <a href="index.html" class="hover:text-sky-600 transition">Home</a>
+          <a href="stories.html" class="hover:text-sky-600 transition">Stories</a>
+          <a href="about.html" class="hover:text-sky-600 transition">About</a>
+          <a href="team.html" class="text-sky-600 font-semibold">Team</a>
+          <a href="news.html" class="hover:text-sky-600 transition">News</a>
+          <a class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition" href="contact.html">Get Help</a>
+        </nav>
+        <button class="md:hidden text-slate-800" aria-label="Open menu" id="nav-toggle">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
     </div>
+    <!-- Mobile Nav -->
+    <nav class="hidden md:hidden p-4 space-y-2" id="mobile-nav">
+        <a href="index.html" class="block hover:text-sky-600 transition">Home</a>
+        <a href="stories.html" class="block hover:text-sky-600 transition">Stories</a>
+        <a href="about.html" class="block hover:text-sky-600 transition">About</a>
+        <a href="team.html" class="block text-sky-600 font-semibold">Team</a>
+        <a href="news.html" class="block hover:text-sky-600 transition">News</a>
+        <a class="block bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition text-center" href="contact.html">Get Help</a>
+      </nav>
   </header>
 
-  <section class="page-hero small">
-    <div class="container">
-  <h1>Vivahit Pidit Sangh (VPS) — Support &amp; Awareness for Men Facing Marital Abuse</h1>
-  <p class="tagline">You are not alone. Speak. Heal. Rise.</p>
-    </div>
-  </section>
+  <main>
+    <section class="py-16 sm:py-24 bg-slate-100">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">Our Team</h1>
+        <p class="mt-4 text-lg text-slate-600">A dedicated group of founders, counselors, and volunteers committed to our mission.</p>
+      </div>
+    </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="grid team-grid">
-        <div class="team-card">
-          <img src="assets/images/shashiRanjan.jpeg" alt="Shashi Ranjan portrait">
-          <h3>Shashi Ranjan</h3>
-          <p class="role">Founder & Chairman</p>
-          <p class="muted">Leads vision, governance, and partnerships for VPS.</p>
-        </div>
-        <div class="team-card">
-          <img src="assets/images/amangupta.jpeg" alt="Aman Gupta portrait">
-          <h3>Aman Gupta</h3>
-          <p class="role">Co‑Founder & Executive Head</p>
-          <p class="muted">Drives programs and execution across VPS initiatives.</p>
-        </div>
-        <div class="team-card">
-          <img src="assets/images/saurabh.jpeg" alt="Saurabh portrait">
-          <h3>Saurabh</h3>
-          <p class="role">Senior Counselor</p>
-          <p class="muted">Leads counseling practices and ensures quality care.</p>
-        </div>
-        <div class="team-card">
-          <img src="assets/images/manish.jpeg" alt="Manish Tripathi portrait">
-          <h3>Manish Tripathi</h3>
-          <p class="role">Counselor</p>
-          <p class="muted">Provides confidential, trauma‑informed support to members.</p>
-        </div>
-        <div class="team-card">
-          <img src="assets/images/yanusman.jpeg" alt=" yanshuman portrait">
-          <h3>Anshuman Yadav</h3>
-          <p class="role">Chef Counselor</p>
-          <p class="muted">Coordinates communications, documentation, and governance for VPS.</p>
-        </div>
-        <div class="team-card">
-          <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=600&auto=format&fit=crop" alt="Kuldeep Chaubey portrait">
-          <h3>Kuldeep Chaubey</h3>
-          <p class="role">Operations Head</p>
-          <p class="muted">Leads daily operations and ensures smooth program delivery.</p>
+    <section class="py-20 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-2xl shadow-lg text-center border border-slate-200">
+            <img class="w-32 h-32 rounded-full mx-auto object-cover" src="assets/images/shashiRanjan.jpeg" alt="Shashi Ranjan portrait">
+            <h3 class="mt-4 text-xl font-bold text-slate-900">Shashi Ranjan</h3>
+            <p class="mt-1 text-sky-600 font-semibold">Founder & Chairman</p>
+            <p class="mt-2 text-sm text-slate-600">Leads vision, governance, and partnerships for VPS.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-lg text-center border border-slate-200">
+            <img class="w-32 h-32 rounded-full mx-auto object-cover" src="assets/images/amangupta.jpeg" alt="Aman Gupta portrait">
+            <h3 class="mt-4 text-xl font-bold text-slate-900">Aman Gupta</h3>
+            <p class="mt-1 text-sky-600 font-semibold">Co‑Founder & Executive Head</p>
+            <p class="mt-2 text-sm text-slate-600">Drives programs and execution across VPS initiatives.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-lg text-center border border-slate-200">
+            <img class="w-32 h-32 rounded-full mx-auto object-cover" src="assets/images/saurabh.jpeg" alt="Saurabh portrait">
+            <h3 class="mt-4 text-xl font-bold text-slate-900">Saurabh</h3>
+            <p class="mt-1 text-sky-600 font-semibold">Senior Counselor</p>
+            <p class="mt-2 text-sm text-slate-600">Leads counseling practices and ensures quality care.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-lg text-center border border-slate-200">
+            <img class="w-32 h-32 rounded-full mx-auto object-cover" src="assets/images/manish.jpeg" alt="Manish Tripathi portrait">
+            <h3 class="mt-4 text-xl font-bold text-slate-900">Manish Tripathi</h3>
+            <p class="mt-1 text-sky-600 font-semibold">Counselor</p>
+            <p class="mt-2 text-sm text-slate-600">Provides confidential, trauma‑informed support to members.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-lg text-center border border-slate-200">
+            <img class="w-32 h-32 rounded-full mx-auto object-cover" src="assets/images/yanusman.jpeg" alt="Anshuman Yadav portrait">
+            <h3 class="mt-4 text-xl font-bold text-slate-900">Anshuman Yadav</h3>
+            <p class="mt-1 text-sky-600 font-semibold">Chief Counselor</p>
+            <p class="mt-2 text-sm text-slate-600">Coordinates communications, documentation, and governance for VPS.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-lg text-center border border-slate-200">
+            <img class="w-32 h-32 rounded-full mx-auto object-cover" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=600&auto=format&fit=crop" alt="Kuldeep Chaubey portrait">
+            <h3 class="mt-4 text-xl font-bold text-slate-900">Kuldeep Chaubey</h3>
+            <p class="mt-1 text-sky-600 font-semibold">Operations Head</p>
+            <p class="mt-2 text-sm text-slate-600">Leads daily operations and ensures smooth program delivery.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <div class="logo">Vivahit Pidit Sangh (VPS)</div>
-        <p class="muted">Confidential support for men facing domestic and marital abuse.</p>
-      </div>
-      <div class="footer-links">
-        <a href="about.html">About</a>
-        <a href="team.html">Team</a>
-        <a href="stories.html">Stories</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-meta">
-        <p>Hotline: <a href="tel:+919876543210">+91 -9876543210</a></p>
-        <p>Email: <a href="mailto:help@menssupport.org">help@menssupport.org</a></p>
+  <footer class="bg-slate-100 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="text-lg font-bold text-slate-900">Vivahit Pidit Sangh (VPS)</div>
+          <p class="mt-2 text-sm text-slate-600">Confidential support for men facing domestic and marital abuse.</p>
+        </div>
+        <div class="md:justify-self-center">
+          <h3 class="font-semibold text-slate-900">Quick Links</h3>
+          <ul class="mt-4 space-y-2">
+            <li><a href="about.html" class="text-sm text-slate-600 hover:text-sky-600">About</a></li>
+            <li><a href="team.html" class="text-sm text-slate-600 hover:text-sky-600">Team</a></li>
+            <li><a href="stories.html" class="text-sm text-slate-600 hover:text-sky-600">Stories</a></li>
+            <li><a href="news.html" class="text-sm text-slate-600 hover:text-sky-600">News</a></li>
+            <li><a href="contact.html" class="text-sm text-slate-600 hover:text-sky-600">Contact</a></li>
+          </ul>
+        </div>
+        <div class="md:justify-self-end">
+          <h3 class="font-semibold text-slate-900">Contact Us</h3>
+          <ul class="mt-4 space-y-2">
+            <li class="text-sm text-slate-600">Hotline: <a href="tel:+919876543210" class="hover:text-sky-600">+91 -9876543210</a></li>
+            <li class="text-sm text-slate-600">Email: <a href="mailto:help@menssupport.org" class="hover:text-sky-600">help@menssupport.org</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </footer>
@@ -121,5 +149,3 @@
   <script src="assets/js/main.js?v=2.2.3"></script>
 </body>
 </html>
-
-
